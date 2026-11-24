@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fimosis King · Conoce al jugador del momento</title>
+<meta name="description" content="Conoce a Fimosis King, el jugador del Betis de moda. Apóyalo con tu voto y participa en el sorteo mensual.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <b>FIMO KING</b>
+  <div id="authBar"><button class="btn small" id="openAuth">Entrar</button></div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1>Fimosis<span>King</span></h1>
+      <p class="lead">El jugador del Betis de moda del momento.</p>
+      <a class="btn" href="#fimosimetro">Apóyalo con tu voto</a>
+    </div>
+    <div class="stage"><div class="poster" id="poster">
+      <img src="img/fimosis-king.jpg" alt="Fimosis King en pleno regate con la camiseta del Betis, cartel «Fichado por el Betis FC»">
+    </div></div>
+  </section>
+
+  <section id="quien">
+    <h2>¿Quién es?</h2>
+    <p class="big">Fimosis King es el jugador del Betis de moda del momento. Tiene también su lado humano y ayuda a la gente. Apóyalo para tener más Fimoking.</p>
+  </section>
+
+  <section id="sobres">
+    <h2>Sobres diarios</h2>
+    <p>Cada día puedes abrir un sobre con 5 cartas de Fimosis King. Toca las cartas para descubrirlas.</p>
+    <div class="packarea">
+      <button class="envelope" id="pack" aria-label="Abrir sobre del día"><span class="flap"></span><span class="seal">👑</span><b>FIMO KING</b></button>
+      <p class="msg" id="packMsg" role="status"></p>
+      <div class="drawn" id="drawn"></div>
+      <button class="btn alt small" id="revealAll" hidden>Revelar todas</button>
+    </div>
+  </section>
+
+  <section id="coleccion">
+    <h2>Mi colección <span class="muted" id="progress"></span></h2>
+    <div class="album" id="album"></div>
+  </section>
+
+  <section id="fimosimetro">
+    <h2>El fimosímetro</h2>
+    <p>Mide cuánta gente le da su apoyo. Un voto por cuenta, y el marcador se reinicia cada mes.</p>
+    <div class="meter">
+      <div>
+        <div class="count" id="count" aria-live="polite">–</div>
+        <div class="muted">votos en <span id="monthName"></span> · se reinicia en <span id="daysLeft"></span></div>
+      </div>
+      <div>
+        <button class="btn" id="vote">Votar a Fimosis King</button>
+        <p class="msg" id="voteMsg" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sorteo">
+    <h2>Sorteo mensual</h2>
+    <p>Todas las personas que votan en el mes participan en el sorteo de recompensas. Cada mes empieza de cero y vuelve a haber sorteo.</p>
+    <div class="todo">Premios: por definir.</div>
+    <div id="admin" hidden>
+      <h3>Panel del sorteo (solo administrador)</h3>
+      <button class="btn alt" id="draw">Sortear entre los votantes del mes</button>
+      <p class="msg" id="winner"></p>
+    </div>
+  </section>
+</main>
+
+<dialog id="authDlg">
+  <form method="dialog" id="authForm">
+    <h3 id="authTitle">Entrar</h3>
+    <label for="email">Correo</label>
+    <input id="email" type="email" autocomplete="email" required>
+    <label for="pass">Contraseña (mínimo 6 caracteres)</label>
+    <input id="pass" type="password" autocomplete="current-password" minlength="6" required>
+    <p class="msg" id="authMsg" role="alert"></p>
+    <div class="row">
+      <button class="btn" id="authSubmit" type="submit">Entrar</button>
+      <button class="btn alt" type="button" id="swap">Crear cuenta nueva</button>
+      <button class="btn alt" type="button" id="closeAuth">Cerrar</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="profDlg">
+  <form method="dialog" id="profForm">
+    <h3>Mi perfil</h3>
+    <div class="preview"><span class="av big" id="pvAv"></span><div><b id="pvName"></b><br><span class="muted" id="pvPhrase"></span></div></div>
+    <label for="pName">Nombre (hasta 20 caracteres)</label>
+    <input id="pName" maxlength="20" required>
+    <fieldset><legend>Foto (elige entre tus cartas)</legend><div class="picks" id="pPicks"></div><p class="muted" id="pNoCards" hidden>Abre tu primer sobre para poder elegir una carta como foto.</p></fieldset>
+    <fieldset><legend>Frase</legend><div class="phrases" id="pPhrases"></div></fieldset>
+    <p class="msg" id="pMsg" role="status"></p>
+    <div class="row"><button class="btn" type="submit">Guardar perfil</button><button class="btn alt" type="button" id="pClose">Cerrar</button></div>
+  </form>
+</dialog>
+
+<footer>Página de fans con cariño y humor.</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
